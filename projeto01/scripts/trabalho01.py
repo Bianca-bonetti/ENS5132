@@ -74,7 +74,7 @@ for estacao in df_final["Estacao"].unique():
             })
 
         #Teste de tendência (Mann-Kendall)
-        serie_mensal = df_final.resample("ME")["Valor"].mean().dropna()
+        serie_mensal = subset.resample("ME")["Valor"].mean().dropna()
         if len(serie_mensal) >= 8:
             mk_result = mk.original_test(serie_mensal)
             mann_kendall_resultados.append({
